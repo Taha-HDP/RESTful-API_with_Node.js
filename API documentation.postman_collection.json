@@ -1,0 +1,570 @@
+{
+	"info": {
+		"_postman_id": "7013525c-d1c3-4828-a724-d8dab3cc0471",
+		"name": "API documentation",
+		"description": "## **Getting started guide**\n\nTo start using the APIs, you need to -\n\n- You must use a valid API Key to send requests to the API endpoints. You can get your API key from Postman's [integrations dashboard](https://go.postman.co/settings/me/api-keys).\n    \n- The API has [rate and usage limits](https://learning.postman.com/docs/developer/postman-api/postman-api-rate-limits/).\n    \n- The API only responds to HTTPS-secured communications. Any requests sent via HTTP return an HTTP 301 redirect to the corresponding HTTPS resources.\n    \n- The API returns request responses in JSON format. When an API request returns an error, it is sent in the JSON response as an error key.\n    \n\n## Authentication\n\nthis app API uses JWT for authentication.\n\nPostman uses API keys for authentication. You can generate a Postman API key in the [API keys](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.\n\nYou must include an API key in each request to the Postman API with the X-Api-Key request header.\n\n### Authentication error response\n\nIf an API key is missing, malformed, or invalid, you will receive an HTTP 401 Unauthorized response code.\n\n## Rate and usage limits\n\nAPI access rate limits apply at a per-API key basis in unit time. The limit is 300 requests per minute. Also, depending on your plan, you may have usage limits. If you exceed either limit, your request will return an HTTP 429 Too Many Requests status code.\n\nEach API response returns the following set of headers to help you identify your use status:\n\n| Header | Description |\n| --- | --- |\n| `x-auth-token` | after login it gives to you for next APIs |\n| `X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make per minute. |\n| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |\n| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36674209"
+	},
+	"item": [
+		{
+			"name": "register",
+			"item": [
+				{
+					"name": "register with invalid phone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"ali\" ,\r\n    \"password\" : \"Password123\" ,\r\n    \"phone\" : \"invalid phone\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Gets information about the authenticated user."
+					},
+					"response": []
+				},
+				{
+					"name": "register with invalid pass",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"ali\" ,\r\n    \"password\" : \"invalidPassword\" ,\r\n    \"phone\" : \"09000000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Gets information about the authenticated user."
+					},
+					"response": []
+				},
+				{
+					"name": "register successfully",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"bagher\" ,\r\n    \"password\" : \"validPass123\" ,\r\n    \"phone\" : \"09000000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Gets information about the authenticated user."
+					},
+					"response": []
+				},
+				{
+					"name": "register with duplicated user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"bagher\" ,\r\n    \"password\" : \"validPass123\" ,\r\n    \"phone\" : \"09000000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Gets information about the authenticated user."
+					},
+					"response": []
+				}
+			],
+			"description": "The `/me` endpoints let you manage information about the authenticated user."
+		},
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "login with wrong user/pass",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\" : \"taha\" ,\r\n    \"password\" : \"wrong\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login successfully",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"input\" : \"bagher\" ,\r\n    \"password\" : \"validPass123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Retrieve user",
+			"item": [
+				{
+					"name": "Retrieve without jwt token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/6682fa4f025a06aa9aed173d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"6682fa4f025a06aa9aed173d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve successfully",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzMmM5YzRjYzk1NjQzNDhjNzAwN2IiLCJ1c2VybmFtZSI6ImJhZ2hlciIsInBob25lIjoiMDkwMDAwMDAwMDAiLCJpYXQiOjE3MTk4NzI4Nzl9.ejocE0OEB5ZryC7Xm_EFJZRk39QxvrWGRwlrTJet89Y",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users/66832c9c4cc9564348c7007b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66832c9c4cc9564348c7007b"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "you need to login first and get the `x-auth-token` and put it in the header of API"
+		},
+		{
+			"name": "Retrieve all users",
+			"item": [
+				{
+					"name": "Retrieve all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzMmM5YzRjYzk1NjQzNDhjNzAwN2IiLCJ1c2VybmFtZSI6ImJhZ2hlciIsInBob25lIjoiMDkwMDAwMDAwMDAiLCJpYXQiOjE3MTk4NzI4Nzl9.ejocE0OEB5ZryC7Xm_EFJZRk39QxvrWGRwlrTJet89Y",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users?Page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "Page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "you need to login first and get the `x-auth-token` and put it in the header of API\n\nyou can change the page with changing the query of API"
+		},
+		{
+			"name": "edit user",
+			"item": [
+				{
+					"name": "edit wrong user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzMmM5YzRjYzk1NjQzNDhjNzAwN2IiLCJ1c2VybmFtZSI6ImJhZ2hlciIsInBob25lIjoiMDkwMDAwMDAwMDAiLCJpYXQiOjE3MTk4NzI4Nzl9.ejocE0OEB5ZryC7Xm_EFJZRk39QxvrWGRwlrTJet89Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"ali\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/66aa2c9c4cc9564348c7007b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66aa2c9c4cc9564348c7007b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit with duplicate username",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzM2E5OWY1NTNiMTg3MWNjZDRjNTAiLCJ1c2VybmFtZSI6ImJhZ2hlciIsInBob25lIjoiMDkwMDAwMDAwMDAiLCJpYXQiOjE3MTk4NzYyNTR9.hKPhORRdfwhB6W9LfupMSA82XrZTTy6swDnELFbjx3E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"ali\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/66833a99f553b1871ccd4c50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66833a99f553b1871ccd4c50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit successfully",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzM2E5OWY1NTNiMTg3MWNjZDRjNTAiLCJ1c2VybmFtZSI6ImJhZ2hlciIsInBob25lIjoiMDkwMDAwMDAwMDAiLCJpYXQiOjE3MTk4NzYyNTR9.hKPhORRdfwhB6W9LfupMSA82XrZTTy6swDnELFbjx3E",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"hasan\",\r\n    \"address\" : \"test addtess\" ,\r\n    \"password\" : \"newPassword2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/66833a99f553b1871ccd4c50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66833a99f553b1871ccd4c50"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "you need to login first and get the `x-auth-token` and put it in the header of API\n\nand when you want to edit your profile the parameter id need to equal the token id"
+		},
+		{
+			"name": "delete user",
+			"item": [
+				{
+					"name": "delete wrong user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzMmM5YzRjYzk1NjQzNDhjNzAwN2IiLCJ1c2VybmFtZSI6ImJhZ2hlciIsInBob25lIjoiMDkwMDAwMDAwMDAiLCJpYXQiOjE3MTk4NzI4Nzl9.ejocE0OEB5ZryC7Xm_EFJZRk39QxvrWGRwlrTJet89Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/66aa2c9c4cc9564348c7007b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66aa2c9c4cc9564348c7007b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete successfully",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjgzM2E5OWY1NTNiMTg3MWNjZDRjNTAiLCJ1c2VybmFtZSI6ImJhZ2hlciIsInBob25lIjoiMDkwMDAwMDAwMDAiLCJpYXQiOjE3MTk4NzYyNTR9.hKPhORRdfwhB6W9LfupMSA82XrZTTy6swDnELFbjx3E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users/66833a99f553b1871ccd4c50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66833a99f553b1871ccd4c50"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "you need to login first and get the `x-auth-token` and put it in the header of API"
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://farming-simulator.pstmn.io"
+		}
+	]
+}

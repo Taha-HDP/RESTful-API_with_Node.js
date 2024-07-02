@@ -1,0 +1,5 @@
+{
+    "jwtPrivetKey" : "adminTasksecret" ,
+    "domain" : "http://localhost:3000" ,
+    "databaseAddress" : "mongodb://0.0.0.0:27017/Test"
+}
